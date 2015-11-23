@@ -1,0 +1,17 @@
+.cms-search {
+  margin-top: 10px;
+}
+
+.cms-search input {
+  display: inline-block;
+  width: 65%;
+}
+
+.cms-search button {
+  float: left;
+}
+
+.cms-search .form-group {
+  float: left;
+  margin-right: 0px;
+}
