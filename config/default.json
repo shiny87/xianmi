@@ -1,4 +1,30 @@
 {
     "serverPort": 8080,
-    "enableSsl": false
+    "enableSsl": false,
+    "mongoServer": "mongodb://localhost:27017/xianmi",
+    "error": {
+        "200": "Successed",
+        "400": "Invalid request param",
+        "401": "Auth Error",
+        "402": "Server not implement",
+        "403": "Invalid token",
+        "404": "Resource not found",
+        "405": "Server internal error"
+    },
+    "log": {
+        "appenders": [
+            {
+                "type": "file",
+                "filename": "logs/erp.log",
+                "backups": 4,
+                "category": "erp"
+            }
+            ,{
+                "type": "console"
+            }
+
+        ],
+        "levels":{ "erp": "INFO"},
+        "replaceConsole": true
+    }
 }

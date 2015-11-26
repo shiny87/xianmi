@@ -11,6 +11,8 @@ var expressSanitizer = require('express-sanitizer');
 var index = require('./routes/index');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
+var tradeQuery = require('./routes/tradeQuery');
+var tradeUpdate = require('./routes/tradeUpdate');
 
 var app = express();
 
@@ -23,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/tradeQuery', tradeQuery);
+app.use('/tradeUpdate', tradeUpdate);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
