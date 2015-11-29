@@ -11,7 +11,16 @@
   float: left;
 }
 
+textarea {
+	display: none;
+}
+
+.row,.cms-search .form-group {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
 .cms-search .form-group {
   float: left;
-  margin-right: 0px;
+  margin-left: 10px;
 }
