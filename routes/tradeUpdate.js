@@ -40,13 +40,13 @@ router.post('/', function(req, res) {
         var util = new Utils();
 
         var request_id = '12345';
-        var logmsg = '{type:"post", method: "tradeUpdate", req_id:"' + request_id + '"';
+        var logmsg = '{type:"post", route: "tradeUpdate", req_id:"' + request_id + '"';
 
         // check token TODO
         var tid = jsonObj.tid;
         var method = jsonObj.method;
         var fetchStatus = jsonObj.fetchStatus;
-        if (!tid || !method || !fetchStatus) {
+        if (!tid || !method || fetchStatus == null) {
             logmsg += ', err_msg: "no tid or method or fetchStatus"}';
             logger.warn(logmsg);
             util.sendResponse(req, res, request_id, 400);
@@ -65,7 +65,7 @@ router.post('/', function(req, res) {
 
         var query = {
         };
-        query.status = 'WAIT_BUYER_PAY'; // FIXME 上线后应该是已付款状态
+        //query.status = 'WAIT_BUYER_PAY'; // FIXME 上线后应该是已付款状态
         query.tid = tid;
         query.shipping_type = 'fetch';
         var options = {};

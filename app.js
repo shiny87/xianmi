@@ -13,6 +13,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var tradeQuery = require('./routes/tradeQuery');
 var tradeUpdate = require('./routes/tradeUpdate');
+var queueing = require('./routes/queueing');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/login', login);
 app.use('/logout', logout);
 app.use('/tradeQuery', tradeQuery);
 app.use('/tradeUpdate', tradeUpdate);
+app.use('/queueing', queueing);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

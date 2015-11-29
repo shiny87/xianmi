@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
     var util = new Utils();
 
     var request_id = '12345';
-    var logmsg = '{type:"get", method: "tradeQuery", req_id:"' + request_id + '"';
+    var logmsg = '{type:"get", route: "tradeQuery", req_id:"' + request_id + '"';
 
     // check token TODO
 
@@ -37,7 +37,7 @@ router.get('/', function(req, res) {
     // query db
     var query = {};
     if (!tradeStatus) {
-        query.status = 'WAIT_BUYER_PAY'; // FIXME 上线后应该是已付款状态
+        //query.status = 'WAIT_BUYER_PAY'; // FIXME 上线后应该是已付款状态
     } else if (tradeStatus === 'all') {
         query.status = null;
     } else {
@@ -116,7 +116,6 @@ router.get('/', function(req, res) {
                 logger.info(logmsg);
                 util.sendResponse(req, res, request_id, 404);
             }
-
             db.close();
         });
     });

@@ -9,7 +9,8 @@
         "402": "Server not implement",
         "403": "Invalid token",
         "404": "Resource not found",
-        "405": "Server internal error"
+        "405": "Server internal error",
+        "451": "Trade is fetched"
     },
     "log": {
         "appenders": [
