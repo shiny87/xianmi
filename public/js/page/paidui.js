@@ -36,20 +36,34 @@ $(function() {
 	$('#paidui_list').on('click', '[tid]', function () {
 		var tid = $(this).attr('tid');
 
-		$.post(baseURL + '/queueing', {method:  'queuePop', tid: tid}, function(data){
-			if (data.error_code !== 200) {
+		$.ajax({
+			type: 'POST',
+			url: baseURL + '/queueing',
+			data: JSON.stringify({method:  'queuePop', tid: tid}),
+			dataType:'json', 
+			success: function(data){
+				if (data.error_code !== 200) {
 				alert(data.error_msg);
 				return ;
 			}
 
-			$.post(baseURL + '/tradeUpdate', {method:  'updateFetchStatus', tid:  tid, fetchStatus: 1}, function(data){
-				if (data.error_code !== 200) {
+			$.ajax({
+				type: 'POST',
+				url: baseURL + '/tradeUpdate',
+				data: JSON.stringify({method:  'updateFetchStatus', tid:  tid, fetchStatus: 1}),
+				dataType:'json', 
+				success: function(data){
+					if (data.error_code !== 200) {
 					alert(data.error_msg);
 					return ;
 				}
 				alert('订单号：' + data.param.tid + ' 已成功发货！');
+				}
 			});
+
 		});
+
+
 	});
 
 });

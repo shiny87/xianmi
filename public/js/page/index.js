@@ -37,13 +37,20 @@ $(function() {
 	$('#index_list').on('click', '[tid]', function () {
 		var tid = $(this).attr('tid');
 
-		$.post(baseURL + '/queueing', {method:  'queuePush', tid: tid}, function(data){
-			if (data.error_code !== 200) {
-				alert(data.error_msg);
-				return ;
+		$.ajax({
+			type: 'POST',
+			url: baseURL + '/queueing',
+			data: JSON.stringify({method:  'queuePush', tid: tid}),
+			dataType:'json', 
+			success: function(data){
+				if (data.error_code !== 200) {
+					alert(data.error_msg);
+					return ;
+				}
+				alert('已加入排队，订单号：' + data.param.tid);
 			}
-			alert('已加入排队，订单号：' + data.param.tid);
 		});
+
 	});
 
 });
