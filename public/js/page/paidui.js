@@ -17,6 +17,7 @@ $(function() {
 			// data format
 			$.each(d.trades, function (i, n) {
 				n.ctid = n.tid.substr(n.tid.length - 4);
+				n.fetch_time = n.fetch_detail.fetch_time;
 				var orderStr = [];
 				$.each(n.orders, function (j, order) {
 					orderStr.push(order.title + '(' + order.sku_id + ') * ' + order.num);
