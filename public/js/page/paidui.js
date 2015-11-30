@@ -5,7 +5,7 @@ $(function() {
 			alert(data.error_msg);
 			return ;
 		}
-		var tid = data.params.tid;
+		var tid = data.param.tid;
 
 		$.getJSON(baseURL + '/tradeQuery?tid=' + tid, function (data) {
 			if (data.error_code !== 200) {
@@ -46,7 +46,7 @@ $(function() {
 					alert(data.error_msg);
 					return ;
 				}
-				alert('订单号：' + data.params.tid + ' 已成功发货！');
+				alert('订单号：' + data.param.tid + ' 已成功发货！');
 			});
 		});
 	});

@@ -2,7 +2,7 @@ $(function() {
 	var phoneNumber = window.util.getUrlRequest()['phoneNumber'];
 
 	if (phoneNumber) {
-		$.getJSON(baseURL + '/tradeQuery?phoneNumber=' + phoneNumber, function () {
+		$.getJSON(baseURL + '/tradeQuery?phoneNumber=' + phoneNumber, function (data) {
 			if (data.error_code !== 200) {
 				alert(data.error_msg);
 				return ;
@@ -42,7 +42,7 @@ $(function() {
 				alert(data.error_msg);
 				return ;
 			}
-			alert('已加入排队，订单号：' + data.params.tid);
+			alert('已加入排队，订单号：' + data.param.tid);
 		});
 	});
 
