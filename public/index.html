@@ -64,12 +64,7 @@
 			<td>{{ctid}}（后4位）</td>
 			<td>{{status_str}}</td>
 			<td>
-      {{#if(status_str==已付款)}}
         <a href="javascript:void(0);" tid="{{tid}}">加入排队</a>
-      {{/endif}}
-      {{#if(status_str==待付款)}}
-        <span>还未付款</span>
-      {{/endif}}
       </td>
 		</tr>
 		{{/trades}}
