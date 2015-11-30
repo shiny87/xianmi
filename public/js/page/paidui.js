@@ -43,24 +43,24 @@ $(function() {
 			dataType:'json', 
 			success: function(data){
 				if (data.error_code !== 200) {
-				alert(data.error_msg);
-				return ;
-			}
-
-			$.ajax({
-				type: 'POST',
-				url: baseURL + '/tradeUpdate',
-				data: JSON.stringify({method:  'updateFetchStatus', tid:  tid, fetchStatus: 1}),
-				dataType:'json', 
-				success: function(data){
-					if (data.error_code !== 200) {
 					alert(data.error_msg);
 					return ;
 				}
-				alert('订单号：' + data.param.tid + ' 已成功发货！');
-				}
-			});
 
+				$.ajax({
+					type: 'POST',
+					url: baseURL + '/tradeUpdate',
+					data: JSON.stringify({method:  'updateFetchStatus', tid:  tid, fetchStatus: 1}),
+					dataType:'json', 
+					success: function(data){
+						if (data.error_code !== 200) {
+						alert(data.error_msg);
+						return ;
+					}
+					alert('订单号：' + data.param.tid + ' 已成功发货！');
+					}
+				});
+			}
 		});
 
 
