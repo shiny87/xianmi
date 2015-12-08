@@ -29,32 +29,42 @@
 	</section>
     <section class="cms-list">
     	<div class="row">
-	        <div class="col-md-4">
-	          <table class="table">
-	            <thead>
-	              <tr>
-	                <th>订单号</th>
-	                <th>提货时间</th>
-	                <th>订单项</th>
-	                <th>状态</th>
-	                <th>功能</th>
-	              </tr>
-	            </thead>
-	            <tbody>
-	              <tr>
-	                <td>e134511</td>
-	                <td>2015/11/22 17:19</td>
-	                <td>苹果（2斤）；橘子（2斤）；油果（2个）；苹果（2斤）；橘子（2斤）；油果（2个）；</td>
-	                <td>未领取</td>
-	                <td><a href="">发货成功</a></td>
-	              </tr>
-	            </tbody>
-	          </table>
-	        </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>订单号</th>
+                <th>提货时间</th>
+                <th>订单项</th>
+                <th>状态</th>
+                <th>功能</th>
+              </tr>
+            </thead>
+            <tbody id="paidui_list">
+              <tr><td colspan="5" class="text-center">none data!</td></tr>
+            </tbody>
+          </table>
 	    </div>
     </section>
+
+
+    <!-- 模板 -->
+    <textarea tpl="paidui_list">
+    	{{#trades}}
+		<tr>
+			<td>{{ctid}}</td>
+			<td>{{fetch_detail.fetch_time}}</td>
+			<td>{{order_info}}</td>
+			<td>{{status_str}}</td>
+			<td><a href="javascript:void(0);" tid="{{tid}}">发货成功</a></td>
+		</tr>
+		{{/trades}}
+    </textarea>
+    <!-- /模板 -->
 	
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/page/paidui.js"></script>
   </body>
 </html>
