@@ -21,7 +21,19 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//app.use(favicon());
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded());
+app.use(expressSanitizer());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(ClientSession({
+    cookieName  : 'session',
+    secret      : 'd41d8cd98f00b204e98simon998ecf8427e',
+    duration    : 24*60*60*1000,
+    activeDuration  : 1000*60*5
+}));
 
 app.use('/', index);
 app.use('/login', login);

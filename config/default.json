@@ -2,6 +2,13 @@
     "serverPort": 8080,
     "enableSsl": false,
     "mongoServer": "mongodb://localhost:27017/xianmi",
+    "authServers": [
+        {
+            "host": "localhost",
+            "port": 8001,
+            "https": false
+        }
+    ],
     "error": {
         "200": "Successed",
         "400": "Invalid request param",
@@ -10,7 +17,11 @@
         "403": "Invalid token",
         "404": "Resource not found",
         "405": "Server internal error",
-        "451": "Trade is fetched"
+        "451": "Trade is fetched",
+        "461": "Account is not found",
+        "462": "Account is not normal",
+        "503": "Get token failed",
+        "561": "generate token error"
     },
     "log": {
         "appenders": [
